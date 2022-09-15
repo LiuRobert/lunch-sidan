@@ -1,0 +1,4 @@
+scrapers/helpers/tempfiles
+__pycache__
+static/menus.json
+test.py
