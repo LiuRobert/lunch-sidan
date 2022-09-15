@@ -1,6 +1,7 @@
 import scrapers.brandstation
 import scrapers.bryners
 import scrapers.estreet
+import scrapers.invito
 import scrapers.qbar
 import json
 import os
@@ -9,6 +10,7 @@ scraper_list = []
 scraper_list.append(scrapers.brandstation.Scraper())
 scraper_list.append(scrapers.bryners.Scraper())
 scraper_list.append(scrapers.estreet.Scraper())
+scraper_list.append(scrapers.invito.Scraper())
 scraper_list.append(scrapers.qbar.Scraper())
 
 
