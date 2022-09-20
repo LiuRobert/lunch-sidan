@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style.css" rel="stylesheet">
-    <title>Sundsvalls lunch</title>
+    <title>Lunch i Sundsvall</title>
   </head>
   <body onload="fetchMenus()">
     <script>
@@ -22,7 +22,7 @@
 
         async function fetchMenus()
         {
-            const res = await fetch("./menus.json");
+            const res = await fetch("./menus.json", {cache: "no-cache"});
             const menus = await res.json();
             const container = document.getElementById("container")
             for (const menu of menus)
@@ -48,7 +48,9 @@
             }
         }
     </script>
-    <h1 class="main-header">Sundsvalls lunch</h1>
+    <div class="main-header">
+        <h1>Lunch i Sundsvall</h1>
+    </div>
     <div class="container" id="container">
     </div>
   </body>
