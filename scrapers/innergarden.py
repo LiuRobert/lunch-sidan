@@ -4,12 +4,12 @@ from html.parser import HTMLParser
 
 class Scraper(Base_Scraper):
     def __init__(self):
-        super().__init__("First Hotel")
+        super().__init__("Innergården")
 
     def scrape(self, useFile: bool):
-        adress = "https://www.firsthotels.se/hotell/sverige/sundsvall/first-hotel-strand/restaurang--bar/lunchmeny/"
+        adress = "http://www.innergarden.se/#lunchmeny"
         if useFile:
-            text = util.cached_request(adress, "first_hotel")
+            text = util.cached_request(adress, "innergarden")
         else:
             text = util.request(adress)
         parser = _Parser()

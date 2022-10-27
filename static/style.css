@@ -38,3 +38,10 @@ li
 {
     padding-bottom: 1rem;
 }
+
+footer
+{
+    position: fixed;
+    bottom: 0;
+    background: white;
+}
