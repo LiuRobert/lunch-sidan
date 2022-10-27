@@ -1,16 +1,6 @@
-menus = null;
 
-function getCurrentDay()
-{
-    const weekday = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
-    let dayIndex = new Date().getDay();
-    // No weekend for you
-    if (dayIndex == 0 || dayIndex == 6)
-    {
-        dayIndex = 1;
-    } 
-    return weekday[dayIndex];
-}
+const weekdays = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
+menus = null;
 
 async function fetchMenus()
 {
@@ -18,12 +8,40 @@ async function fetchMenus()
     menus = await res.json();
     const updatedSpan = document.getElementById("updated");
     updatedSpan.innerHTML = menus.updated;
-    updateDay(getCurrentDay());
+    updateMenu(getCurrentDayIndex());
 }
 
-async function updateDay(day)
+function getCurrentDayIndex()
 {
+    let dayIndex = new Date().getDay();
+    // No weekend for you
+    if (dayIndex == 0 || dayIndex == 6)
+    {
+        dayIndex = 1;
+    } 
+    return dayIndex;
+}
+
+function updateMenu(dayIndex)
+{
+    const day = weekdays[dayIndex];
+    const buttons = document.getElementsByClassName("button-day");
+    const activeClass = "button-active";
+    for (let button of buttons)
+    {
+        if (button.classList.contains(activeClass))
+        {
+            button.classList.remove(activeClass);
+        }
+    }
+    buttons[dayIndex - 1].classList.add(activeClass);
     const container = document.getElementById("container")
+    container.replaceChildren(...getMenuDivs(day))
+}
+
+function getMenuDivs(day)
+{
+    const dayMenus = [];
     for (const menu of menus.menus)
     {
         const div = document.createElement("div");
@@ -39,6 +57,7 @@ async function updateDay(day)
             li.innerText = course;
             ul.appendChild(li);
         }
-        container.appendChild(div);
+        dayMenus.push(div);
     }
+    return dayMenus;
 }

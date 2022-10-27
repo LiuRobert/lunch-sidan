@@ -17,7 +17,7 @@ scraper_list.append(scrapers.invito.Scraper())
 scraper_list.append(scrapers.qbar.Scraper())
 
 
-menus = {"updated": datetime.today().strftime("%Y-%m-%d %H:%M"), "menus": []}
+menus = {"updated": datetime.today().strftime("%Y-%m-%d"), "menus": []}
 useCached = False
 
 for scraper in scraper_list:
