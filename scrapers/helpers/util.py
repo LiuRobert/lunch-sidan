@@ -44,7 +44,6 @@ def __save_request(adress: str, path: str, encoding: str) -> str:
 
 __template = {
     "name": "",
-    "failed": False,
     "menu": 
     {
         "monday": [],

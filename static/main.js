@@ -26,10 +26,6 @@ async function updateDay(day)
     const container = document.getElementById("container")
     for (const menu of menus.menus)
     {
-        if (menu.failed)
-        {
-            continue;
-        }
         const div = document.createElement("div");
         div.className = "item";
         let h2 = document.createElement("h2");
