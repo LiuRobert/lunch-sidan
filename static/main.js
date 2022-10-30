@@ -17,7 +17,7 @@ function getCurrentDayIndex()
     // No weekend for you
     if (dayIndex == 0 || dayIndex == 6)
     {
-        dayIndex = 1;
+        dayIndex = 5;
     } 
     return dayIndex;
 }
