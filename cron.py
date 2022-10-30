@@ -20,15 +20,19 @@ scraper_list.append(scrapers.qbar.Scraper())
 menus = {"updated": datetime.today().strftime("%Y-%m-%d"), "menus": []}
 useCached = False
 
-for scraper in scraper_list:
-    try:
-        menu = scraper.scrape(useCached)
-        menus["menus"].append(menu)
-    except Exception as e:
-        print("Scraper " + scraper.name + " failed")
-        print(e)
-
 directory = os.path.dirname(os.path.abspath(__file__))
+
+with open(directory + "/cronlog.log", "a", encoding="UTF-8") as f:
+    for scraper in scraper_list:
+        try:
+            menu = scraper.scrape(useCached)
+            menus["menus"].append(menu)
+            f.write("[" + str(datetime.now()) + "]: " + "Scraped " + scraper.name + "\n")
+        except Exception as e:
+            f.write("[" + str(datetime.now()) + "]: " + "Scraper " + scraper.name + " failed!\n")
+            f.write(e)
+
+
 menu_path = os.path.normpath(os.path.join(directory, "static/menus.json"))
 
 with open(menu_path, "w", encoding="utf-8") as f:
