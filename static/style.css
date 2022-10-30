@@ -35,6 +35,8 @@
     background: white;
     border-style: none;
     padding: 0.5rem 2rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
 }
 
 .button-day:hover
