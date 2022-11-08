@@ -14,11 +14,11 @@ def get_week_days():
 
 
 def clean(text: str) -> str:
-    text = re.sub(r'[^A-Z|a-z|åäöÅÄÖéÉèÈ,. &-]+', '', text)
+    text = re.sub(r'[^A-Z|a-z|åäöÅÄÖéÉèÈ,. &/-]+', '', text)
     return text.strip()
 
 
-def request(adress: str):
+def request(adress: str) -> str:
     # we are chrome
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'}
     res = requests.get(adress, headers=headers)
@@ -27,7 +27,10 @@ def request(adress: str):
 
 # returns the cached request or makes a request and caches it
 def cached_request(adress: str, name: str, file_ending="html", encoding="utf-8") -> str:
-    path = os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), "tempfiles/" + name + "." + file_ending))
+    temp_folder = os.path.join(os.path.dirname(os.path.realpath(__file__)), "tempfiles")
+    if not os.path.isdir(temp_folder):
+        os.mkdir(temp_folder)
+    path = os.path.join(temp_folder, name + "." + file_ending)
     if os.path.isfile(path):
         with open(path, "r", encoding=encoding) as f:
             return f.read()

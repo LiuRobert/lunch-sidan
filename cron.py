@@ -2,6 +2,7 @@ import scrapers.brandstation
 import scrapers.bryners
 import scrapers.estreet
 import scrapers.firsthotel
+import scrapers.innergarden
 import scrapers.invito
 import scrapers.qbar
 from datetime import datetime;
@@ -13,6 +14,7 @@ scraper_list.append(scrapers.brandstation.Scraper())
 scraper_list.append(scrapers.bryners.Scraper())
 scraper_list.append(scrapers.estreet.Scraper())
 scraper_list.append(scrapers.firsthotel.Scraper())
+scraper_list.append(scrapers.innergarden.Scraper())
 scraper_list.append(scrapers.invito.Scraper())
 scraper_list.append(scrapers.qbar.Scraper())
 
