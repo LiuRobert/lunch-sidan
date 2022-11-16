@@ -6,6 +6,29 @@
     margin-right: 10rem;
 }
 
+.content
+{
+    column-width: 30rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.content .item p 
+{
+    padding: 0rem 2rem 1rem 2rem;
+    margin-top: 0;
+} 
+
+.content .item ul 
+{
+    padding-top: 0;
+}
+
+.content .item li
+{
+    padding-bottom: 1rem;
+}
+
 .item
 {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);

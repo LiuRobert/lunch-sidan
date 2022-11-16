@@ -1,27 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
   <head>
-    <meta charset="utf-8">
-    <link href="style.css" rel="stylesheet">
-    <script src="main.js"></script> 
-    <title>Lunch i Sundsvall</title>
+    <meta charset="utf-8" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="main.js"></script>
+    <title>
+      Lunch i Sundsvall - Dagens lunch från flertalet restauranger i Sundsvall
+    </title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7992281778196338" crossorigin="anonymous"></script>
   </head>
   <body onload="fetchMenus()">
     <div class="main-header">
-        <h1>Lunch i Sundsvall</h1>
+      <h1>Lunch i Sundsvall</h1>
     </div>
     <div class="button-group">
-        <button class="button-day" onclick="updateMenu(1)">Måndag</button>
-        <button class="button-day" onclick="updateMenu(2)">Tisdag</button>
-        <button class="button-day" onclick="updateMenu(3)">Onsdag</button>
-        <button class="button-day" onclick="updateMenu(4)">Torsdag</button>
-        <button class="button-day" onclick="updateMenu(5)">Fredag</button>
+      <button class="button-day" onclick="updateMenu(1)">Måndag</button>
+      <button class="button-day" onclick="updateMenu(2)">Tisdag</button>
+      <button class="button-day" onclick="updateMenu(3)">Onsdag</button>
+      <button class="button-day" onclick="updateMenu(4)">Torsdag</button>
+      <button class="button-day" onclick="updateMenu(5)">Fredag</button>
     </div>
-    <div class="container" id="container">
+    <div class="container" id="container"></div>
+    <div class="content" id="content">
+      <div class="item">
+        <h2>Dagens lunch i Sundsvall</h2>
+        <p>
+          Här presenteras <b>dagens lunch i Sundsvall</b> från flertalet
+          restauranger som <em>Brandstation</em>, <em>E-street</em>,
+          <em>Invito</em>, <em>First hotel</em> och många andra populära
+          lunchställen i Sundsvall. Menyerna uppdateras varje vardag,
+          automatiskt från respektive hemsida, klockan 10:00. Det betyder har
+          det skett någon förändring i någon meny och restaurangen i Sundsvall
+          inte har uppdaterat sin hemsida, alternativ efter klockan 10:00 samma
+          dag, kommer <em>lunch-sundsvall.com</em> inte kunna presentera aktuell
+          lunchmeny för den restaurangen. Detta händer inte ofta, men kan vara
+          bra och veta.
+        </p>
+      </div>
+      <div class="item">
+        <h2>Varför finns inte "x" med på sidan?</h2>
+        <p>
+          Vi försöker hämta så många dagens lunch menyer i Sundsvall som det
+          bara går. Dock kan det finnas vissa tekniska hinder som gör att vi
+          inte kan hämta dagens lunch meny från en specifik restaurang. T.ex:
+        </p>
+        <ul>
+          <li>
+            Om restaurangen t.ex. presenterar sin meny som en bild kan vi inte
+            tolka bilden till text och därav kan vi inte hämta menyn för just
+            det restaurangen.
+          </li>
+          <li>
+            Restaurangen har ingen hemsida - Det finns restauranger i Sundsvall
+            som presenterar sin "dagen lunch meny" på Facebook. Tyvärr har vi
+            inte möjlighet att hämta data från Facebook just nu.
+          </li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <h2>Hur bidrar jag?</h2>
+        <p>
+          Koden som kör denna hemsida finns offentlig på
+          <a href="https://github.com/LiuRobert/lunch-sidan">Github</a>. Du är
+          mer än välkommen att skicka en pull-request om du har någon bra idée
+          på hur man kan göra denna sida bättre.
+        </p>
+      </div>
     </div>
   </body>
-  <footer>
-    Menyerna uppdaterades <span id="updated"></span>
-  </footer>
+  <footer>Menyerna uppdaterades <span id="updated"></span></footer>
 </html>
