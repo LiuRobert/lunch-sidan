@@ -32,7 +32,7 @@ with open(directory + "/cronlog.log", "a", encoding="UTF-8") as f:
             f.write("[" + str(datetime.now()) + "]: " + "Scraped " + scraper.name + "\n")
         except Exception as e:
             f.write("[" + str(datetime.now()) + "]: " + "Scraper " + scraper.name + " failed!\n")
-            f.write(e)
+            f.write(str(e))
 
 
 menu_path = os.path.normpath(os.path.join(directory, "static/menus.json"))
