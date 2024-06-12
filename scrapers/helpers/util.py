@@ -4,7 +4,7 @@ import os
 import requests
 
 def get_template(name: str):
-    template = copy.deepcopy(__template)
+    template = copy.deepcopy(_template)
     template["name"] = name
     return template
 
@@ -35,17 +35,17 @@ def cached_request(adress: str, name: str, file_ending="html", encoding="utf-8")
         with open(path, "r", encoding=encoding) as f:
             return f.read()
     else:
-        return __save_request(adress, path, encoding)
+        return _save_request(adress, path, encoding)
 
 
-def __save_request(adress: str, path: str, encoding: str) -> str:
+def _save_request(adress: str, path: str, encoding: str) -> str:
     text = request(adress)
     with open(path, "w", encoding=encoding) as f:
         f.write(text)
     return text
 
 
-__template = {
+_template = {
     "name": "",
     "menu": 
     {

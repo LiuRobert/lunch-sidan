@@ -25,6 +25,7 @@ useCached = False
 directory = os.path.dirname(os.path.abspath(__file__))
 
 with open(directory + "/cronlog.log", "a", encoding="UTF-8") as f:
+    f.write("START\n")
     for scraper in scraper_list:
         try:
             menu = scraper.scrape(useCached)
@@ -32,7 +33,8 @@ with open(directory + "/cronlog.log", "a", encoding="UTF-8") as f:
             f.write("[" + str(datetime.now()) + "]: " + "Scraped " + scraper.name + "\n")
         except Exception as e:
             f.write("[" + str(datetime.now()) + "]: " + "Scraper " + scraper.name + " failed!\n")
-            f.write(str(e))
+            f.write("\t" + str(e) + "\n")
+    f.write("END\n\n")
 
 
 menu_path = os.path.normpath(os.path.join(directory, "static/menus.json"))
